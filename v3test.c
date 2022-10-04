@@ -47,7 +47,7 @@ int main()
 
 	  if( (testDest[0] == abs(b[0] - a[0])) &&
 		(testDest[1] == abs(b[1] - a[1])) &&
-		(testDest[2] == abs(b[2] - b[2])))
+		(testDest[2] == abs(b[2] - a[2])))
 	  {
 	    printf( "Test %d passed for v3_from_points\n", testNum );
 	  }
@@ -175,7 +175,8 @@ int main()
 	case 9:
 	  length = v3_length( a );
 
-	  if( length == (sqrt(pow(a[0],2) + pow(a[1],2) + pow(a[2],2))))
+	  if( length <= (sqrt(pow(a[0],2) + pow(a[1],2) + pow(a[2],2))) + tolerance &&
+	      length >= (sqrt(pow(a[0],2) + pow(a[1],2) + pow(a[2],2))) - tolerance )
 	  {
 	    printf( "Test %d passed for v3_length\n", testNum );
 	  }
