@@ -21,7 +21,7 @@ void v3_subtract(float *dst, float *a, float *b){
 }
 
 float v3_dot_product(float *a, float *b) {
-    return (a[0] * b[0])+ (a[1] * b[1]) + (a[2] * b[1]);
+    return (a[0] * b[0]) + (a[1] * b[1]) + (a[2] * b[2]);
 }
 
 void v3_cross_product(float *dst, float *a, float *b) {

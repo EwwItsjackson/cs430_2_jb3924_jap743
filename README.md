@@ -5,6 +5,7 @@ Jakob Pirkl (jap743)
 Jackson Brittain (jb3923)  
 
 ## Usage
+./v3test
 
 ## Known Issues
 No current issues 
