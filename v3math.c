@@ -64,3 +64,4 @@ void v3_normalize(float *dst, float *a) {
     dst[1] = a[1] / length;
     dst[2] = a[2] / length;
 }
+
