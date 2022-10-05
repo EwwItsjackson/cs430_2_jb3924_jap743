@@ -53,7 +53,8 @@ int main()
 	  }
 	  else
 	  {
-	    printf( "Test %d failed for v3_from_points\n", testNum );
+	    printf( "Test %d failed for v3_from_points. Expected: %f, %f, %f Actual: %f, %f, %f\n", testNum,
+		 		(float)abs(b[0] - a[0]), (float)abs(b[1] - a[1]), (float)abs(b[2] - a[2]), testDest[0], testDest[1], testDest[2]);
 	  }
 	  break;
 
@@ -68,7 +69,10 @@ int main()
 	  }
 	  else
 	  {
-	    printf( "Test %d failed for v3_add\n", testNum );
+	    printf( "Test %d failed for v3_add. Expected: %f, %f, %f Actual: %f, %f, %f\n", testNum,
+		 		(float)a[0] + b[0], (float)a[1] + b[1], (float)a[2] + b[2], testDest[0], testDest[1], testDest[2] );
+
+
 	  }
 	  break;
 
@@ -83,7 +87,8 @@ int main()
 	  }
 	  else
 	  {
-	    printf( "Test %d failed for v3_subtract\n", testNum );
+	    printf( "Test %d failed for v3_subtract. Expected: %f, %f, %f Actual: %f, %f, %f\n", testNum,
+		 		(float)a[0] - b[0], (float)a[1] - b[1], (float)a[2] - b[2], testDest[0], testDest[1], testDest[2] );
 	  }
 	  break;
 
@@ -96,7 +101,8 @@ int main()
 	  }
 	  else
 	  {
-	    printf( "Test %d failed for v3_dot_product\n", testNum );
+	    printf( "Test %d failed for v3_dot_product. Expected: %f Actual: %f\n", testNum,
+		 		((a[0] * b[0]) + (a[1] * b[1]) + (a[2] * b[2])), dot );
 	  }
 	  break;
 
@@ -111,7 +117,9 @@ int main()
 	  }
 	  else
 	  {
-	    printf( "Test %d failed for v3_cross_product\n", testNum );
+	    printf( "Test %d failed for v3_cross_product. Expected: %f, %f, %f Actual: %f, %f, %f\n", testNum,
+		 		 (a[1] * b[2]) - (a[2] * b[1]), (a[2] * b[0]) - (a[0] * b[2]), (a[0] * b[1]) - (a[1] * b[0]),
+		 		testDest[0], testDest[1], testDest[2] );
 	  }
 	  break;
 
@@ -127,7 +135,8 @@ int main()
 	  }
 	  else
 	  {
-	    printf( "Test %d failed for v3_scale\n", testNum );
+	    printf( "Test %d failed for v3_scale. Expected: %f, %f, %f Actual: %f, %f, %f\n", testNum,
+			(float)testDest[0] * scale, (float)testDest[1] * scale, (float)testDest[2] * scale, testDest[0], testDest[1], testDest[2]);
 	  }
 	  break;
 
@@ -141,7 +150,8 @@ int main()
 	  }
 	  else
 	  {
-	    printf( "Test %d failed for v3_angle\n", testNum );
+	    printf( "Test %d failed for v3_angle. Expected: %f Actual: %f\n", testNum,
+		 		(acosf(v3_dot_product(a,b) / (v3_length(a) * v3_length(b)))), angle );
 	  }
 	  break;
 
@@ -155,7 +165,8 @@ int main()
 	  }
 	  else
 	  {
-	    printf( "Test %d failed for v3_angle_quick\n", testNum );
+	    printf( "Test %d failed for v3_angle_quick. Expected: %f Actual: %f\n", testNum,
+		 			v3_dot_product(a,b)/((v3_length(a) * v3_length(b))), angle);
 	  }
 	  break;
 
@@ -164,13 +175,15 @@ int main()
 
 	  if( testDest[0] == (2 * v3_dot_product(a, b) * b[0] - a[0]) &&
 		testDest[1] == (2 * v3_dot_product(a, b) * b[1] - a[1]) &&
-		testDest[2] == 2 * v3_dot_product(a, b) * b[2] - a[2])
+		testDest[2] == (2 * v3_dot_product(a, b) * b[2] - a[2]))
 	  {
 	    printf( "Test %d passed for v3_reflect\n", testNum );
 	  }
 	  else
 	  {
-	    printf( "Test %d failed for v3_reflect\n", testNum );
+	    printf( "Test %d failed for v3_reflect. Expected: %f, %f, %f Actual: %f, %f, %f\n", testNum,
+			     (2 * v3_dot_product(a, b) * b[0] - a[0]), (2 * v3_dot_product(a, b) * b[1] - a[1]),
+ 				(2 * v3_dot_product(a, b) * b[2] - a[2]), testDest[0], testDest[1], testDest[2]);
 	  }
 	  break;
 
@@ -184,7 +197,8 @@ int main()
 	  }
 	  else
 	  {
-	    printf( "Test %d failed for v3_length\n", testNum );
+	    printf( "Test %d failed for v3_length. Expected: %f Actual: %f\n", testNum,
+		 	 (sqrt(pow(a[0],2) + pow(a[1],2) + pow(a[2],2))), length );
 	  }
 	  break;
 
@@ -203,7 +217,8 @@ int main()
 	  }
 	  else
 	  {
-	    printf( "Test %d failed for v3_normalize\n", testNum );
+	    printf( "Test %d failed for v3_normalize. Expected: %f, %f, %f Actual: %f, %f, %f\n", testNum,
+		 		(float)a[0] / length, (float)a[1] / length, (float)a[2]/ length, testDest[0], testDest[1], testDest[2] );
 	  }
 	  break;
       }
