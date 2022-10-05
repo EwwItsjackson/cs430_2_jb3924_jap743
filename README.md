@@ -9,3 +9,9 @@ Jackson Brittain (jb3923)
 
 ## Known Issues
 No current issues 
+
+## About
+
+This is a 3D math library with a test function.
+
+The test function is designed to make sure each math function is working correctly.
