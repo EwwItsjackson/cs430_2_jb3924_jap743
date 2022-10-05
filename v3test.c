@@ -134,7 +134,8 @@ int main()
 	case 6:
 	  angle = v3_angle( a, b );
 
-	  if( angle == (acosf(v3_dot_product(a,b) / (v3_length(a) * v3_length(b)))))
+	  if( (angle <= (acosf(v3_dot_product(a,b) / (v3_length(a) * v3_length(b)))) + tolerance) ||
+		angle >= (acosf(v3_dot_product(a,b) / (v3_length(a) * v3_length(b)))) - tolerance)
 	  {
 	    printf( "Test %d passed for v3_angle\n", testNum );
 	  }
@@ -147,7 +148,8 @@ int main()
 	case 7:
 	  angle = v3_angle_quick( a, b );
 
-	  if( angle == (v3_dot_product(a,b) / (v3_length(a) * v3_length(b))))
+	  if( (angle <= (v3_dot_product(a,b) / (v3_length(a) * v3_length(b))) + tolerance) ||
+		(angle >= (v3_dot_product(a,b) / (v3_length(a) * v3_length(b))) - tolerance) )
 	  {
 	    printf( "Test %d passed for v3_angle_quick\n", testNum );
 	  }
@@ -190,9 +192,12 @@ int main()
 	  v3_normalize( testDest, a );
 	  length = v3_length(a);
 
-	  if( testDest[0] == a[0] / length &&
-		testDest[1] == a[1] / length &&
-		testDest[2] == a[2] / length)
+	  if( (testDest[0] <= (a[0] / length) + tolerance ||
+		testDest[0] >= (a[0] / length) - tolerance) &&
+		(testDest[1] <= (a[1] / length) + tolerance || 
+		testDest[1] >= (a[1] / length) - tolerance) &&
+		(testDest[2] <= (a[2] / length) + tolerance ||
+		testDest[2] >= (a[2] / length) - tolerance))
 	  {
 	    printf( "Test %d passed for v3_normalize\n", testNum );
 	  }
