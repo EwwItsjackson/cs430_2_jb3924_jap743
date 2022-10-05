@@ -21,3 +21,4 @@ void v3_normalize(float *dst, float *a);
 
 
 #endif
+
